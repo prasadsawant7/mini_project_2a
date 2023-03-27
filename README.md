@@ -1,7 +1,6 @@
-# mini_project_2a
-Mini Project 2A
+# Mini Project 2A
 
-# Commands to run
+### Commands to run
 ```
 git clone https://github.com/prasadsawant7/mini_project_2a.git
 
@@ -19,4 +18,9 @@ npm run build
 npm run preview
 
 # Don't forget to git pull first before git push !!!
+```
+
+### If you want to create any component
+```
+create folder inside src/client/components/Component/Component.jsx
 ```
