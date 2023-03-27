@@ -16,7 +16,7 @@ export default function App() {
   );
 
   return (
-    <div class="app">
+    <div className="app">
       <RouterProvider router={router} />
     </div>
   );

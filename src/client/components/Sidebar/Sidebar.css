@@ -1,0 +1,154 @@
+.sidebar {
+  display: grid;
+  max-width: 300px;
+  height: 100vh;
+  grid-template-columns: 300px;
+  grid-template-rows: 80px 80px 265px 265px 50px 50px;
+  grid-template-areas: "head" "search" "main-menu" "settings" "help-center" "logout";
+  border-right: 1px solid #ccc;
+}
+
+.head {
+  grid-area: head;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.head .branding {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 70%;
+}
+.head .branding .brand_logo,
+.head .branding .brand_logo img {
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+.head .branding .brand_name {
+  font-size: 18px;
+  font-weight: 600;
+}
+.head .collapse {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  font-size: 22.5px;
+}
+
+.search {
+  grid-area: search;
+  display: grid;
+  place-items: center;
+}
+.search .search-bar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #f4f6f8;
+  color: #78797f;
+  border: 1px solid #ccc;
+  width: 250px;
+  height: 30px;
+  border-radius: 8px;
+  padding: 2.5px;
+}
+.search .search-bar input[type="search"] {
+  background-color: #f4f6f8;
+  color: #78797f;
+  border: none;
+  outline: 0;
+}
+
+.main-menu {
+  grid-area: main-menu;
+  padding: 25px;
+}
+.main-menu .section-header,
+.settings .section-header {
+  font-size: 16px;
+  font-weight: 500;
+  color: #70737c;
+  text-transform: uppercase;
+}
+.main-menu .menu-items,
+.settings .menu-items,
+.help-center .menu-items,
+.logout .menu-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.main-menu .menu-items a,
+.settings .menu-items a,
+.help-center .menu-items a,
+.logout .menu-items a {
+  color: #737478;
+  text-decoration: none;
+}
+.main-menu .menu-items .item,
+.settings .menu-items .item,
+.help-center .menu-items .item,
+.logout .menu-items .item {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px 10px;
+  margin: 10px 0px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.main-menu .menu-items .item:hover,
+.settings .menu-items .item:hover,
+.help-center .menu-items .item:hover,
+.logout .menu-items .item:hover {
+  background-color: blue;
+  color: #ffffff;
+  transition: all 0.5s ease-in-out;
+}
+.main-menu .menu-items .item .item-icon,
+.settings .menu-items .item .item-icon,
+.help-center .menu-items .item .item-icon,
+.logout .menu-items .item .item-icon,
+.main-menu .menu-items .item .item-name,
+.settings .menu-items .item .item-name,
+.help-center .menu-items .item .item-name,
+.logout .menu-items .item .item-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+}
+
+.settings {
+  grid-area: settings;
+  padding: 25px;
+}
+
+.help-center {
+  grid-area: help-center;
+}
+.help-center .menu-items .item {
+  padding-right: 40px;
+}
+.help-center .menu-items,
+.logout .menu-items {
+  width: 250px;
+  height: 40px;
+  border-radius: 8px;
+  position: relative;
+  left: 25px;
+}
+
+.logout {
+  grid-area: logout;
+}
+.logout .menu-items .item {
+  padding-right: 40px;
+}
