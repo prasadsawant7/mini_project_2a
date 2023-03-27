@@ -4,14 +4,13 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import Navbar from "./components/Navbar/Navbar";
-import Dashboard from "./components/Dashboard/Dashboard";
+import Sidebar from "./components/Sidebar/Sidebar";
 
 export default function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<Navbar />}>
-        <Route index element={<Dashboard />}></Route>
+      <Route path="/" element={<Sidebar />}>
+        {/* <Route index element={<Dashboard />}></Route> */}
       </Route>
     )
   );
@@ -19,7 +18,6 @@ export default function App() {
   return (
     <div class="app">
       <RouterProvider router={router} />
-      Hello
     </div>
   );
 }
