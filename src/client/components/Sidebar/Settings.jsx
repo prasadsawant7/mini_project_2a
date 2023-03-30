@@ -7,7 +7,7 @@ export default function Settings() {
       <div className="section-header">Settings</div>
       <div className="menu-items">
         <NavLink path="#">
-          <div className="item">
+          <div className="item" id="profile">
             <div className="item-icon">
               <BiUser />
             </div>
@@ -17,7 +17,7 @@ export default function Settings() {
           </div>
         </NavLink>
         <NavLink path="#">
-          <div className="item">
+          <div className="item" id="settings">
             <div className="item-icon">
               <BiCog />
             </div>

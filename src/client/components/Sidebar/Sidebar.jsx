@@ -1,6 +1,5 @@
 import "./Sidebar.css";
 import Head from "./Head";
-import Search from "./Search";
 import MainMenu from "./MainMenu";
 import Settings from "./Settings";
 import HelpCenter from "./HelpCenter";
@@ -12,7 +11,6 @@ export default function Sidebar() {
     <>
       <div className="sidebar">
         <Head />
-        <Search />
         <MainMenu />
         <Settings />
         <HelpCenter />
@@ -20,9 +18,7 @@ export default function Sidebar() {
       </div>
       <div className="main-content">
         <Navbar />
-        <div className="content">
-          Content
-        </div>
+        <div className="content">Content</div>
       </div>
     </>
   );

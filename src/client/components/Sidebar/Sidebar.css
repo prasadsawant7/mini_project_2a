@@ -1,10 +1,8 @@
 .sidebar {
   display: grid;
-  max-width: 300px;
-  height: 100vh;
   grid-template-columns: 300px;
-  grid-template-rows: 80px 80px 265px 265px 50px 50px;
-  grid-template-areas: "head" "search" "main-menu" "settings" "help-center" "logout";
+  grid-template-rows: 100px 290px 290px 50px 50px;
+  grid-template-areas: "head" "main-menu" "settings" "help-center" "logout";
   border-right: 1px solid #ccc;
 }
 
@@ -40,45 +38,19 @@
   font-size: 22.5px;
 }
 
-.search {
-  grid-area: search;
-  display: grid;
-  place-items: center;
-}
-.search .search-bar {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: #f4f6f8;
-  color: #78797f;
-  border: 1px solid #ccc;
-  width: 250px;
-  height: 30px;
-  border-radius: 8px;
-  padding: 2.5px;
-}
-.search .search-bar input[type="search"] {
-  background-color: #f4f6f8;
-  color: #78797f;
-  border: none;
-  outline: 0;
-}
-
 .main-menu {
   grid-area: main-menu;
   padding: 25px;
 }
 .main-menu .section-header,
 .settings .section-header {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
-  color: #70737c;
+  color: #000000;
   text-transform: uppercase;
 }
 .main-menu .menu-items,
-.settings .menu-items,
-.help-center .menu-items,
-.logout .menu-items {
+.settings .menu-items {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -88,22 +60,126 @@
 .settings .menu-items a,
 .help-center .menu-items a,
 .logout .menu-items a {
-  color: #737478;
+  color: #484b53;
   text-decoration: none;
 }
-.main-menu .menu-items .item,
-.settings .menu-items .item,
-.help-center .menu-items .item,
-.logout .menu-items .item {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 5px 10px;
-  margin: 10px 0px;
-  border-radius: 6px;
-  cursor: pointer;
+
+.main-menu .menu-items a,
+.settings .menu-items a {
+  display: grid;
+  place-items: center;
 }
+
+.main-menu .menu-items #dashboard {
+  display: grid;
+  grid-template-columns: 45px 120px;
+  grid-template-areas: "dash-icon dash-text";
+  padding: 8px 2px;
+  margin: 5px 0px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+.main-menu .menu-items #dashboard .item-icon {
+  grid-area: dash-icon;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-menu .menu-items #dashboard .item-name {
+  grid-area: dash-text;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.main-menu .menu-items #blogs {
+  display: grid;
+  grid-template-columns: 45px 120px;
+  grid-template-areas: "blog-icon blog-text";
+  padding: 8px 2px;
+  margin: 5px 0px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+.main-menu .menu-items #blogs .item-icon {
+  grid-area: blog-icon;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-menu .menu-items #blogs .item-name {
+  grid-area: blog-text;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.main-menu .menu-items #crops {
+  display: grid;
+  grid-template-columns: 45px 120px;
+  grid-template-areas: "crop-icon crop-text";
+  padding: 8px 2px;
+  margin: 5px 0px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+.main-menu .menu-items #crops .item-icon {
+  grid-area: crop-icon;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-menu .menu-items #crops .item-name {
+  grid-area: crop-text;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.settings .menu-items #profile {
+  display: grid;
+  grid-template-columns: 45px 120px;
+  grid-template-areas: "prof-icon prof-text";
+  padding: 8px 2px;
+  margin: 5px 0px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+.settings .menu-items #profile .item-icon {
+  grid-area: prof-icon;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.settings .menu-items #profile .item-name {
+  grid-area: prof-text;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.settings .menu-items #settings {
+  display: grid;
+  grid-template-columns: 45px 120px;
+  grid-template-areas: "set-icon set-text";
+  padding: 8px 2px;
+  margin: 5px 0px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+.settings .menu-items #settings .item-icon {
+  grid-area: set-icon;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.settings .menu-items #settings .item-name {
+  grid-area: set-text;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .main-menu .menu-items .item:hover,
 .settings .menu-items .item:hover,
 .help-center .menu-items .item:hover,
@@ -114,12 +190,8 @@
 }
 .main-menu .menu-items .item .item-icon,
 .settings .menu-items .item .item-icon,
-.help-center .menu-items .item .item-icon,
-.logout .menu-items .item .item-icon,
 .main-menu .menu-items .item .item-name,
-.settings .menu-items .item .item-name,
-.help-center .menu-items .item .item-name,
-.logout .menu-items .item .item-name {
+.settings .menu-items .item .item-name {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -133,22 +205,38 @@
 
 .help-center {
   grid-area: help-center;
-}
-.help-center .menu-items .item {
-  padding-right: 40px;
-}
-.help-center .menu-items,
-.logout .menu-items {
-  width: 250px;
-  height: 40px;
-  border-radius: 8px;
-  position: relative;
-  left: 25px;
+  display: grid;
+  place-items: center;
 }
 
 .logout {
   grid-area: logout;
+  display: grid;
+  place-items: center;
 }
+
+.help-center .menu-items .item,
 .logout .menu-items .item {
-  padding-right: 40px;
+  display: grid;
+  grid-template-columns: 65px 205px;
+  grid-template-areas: "help-icon help-text";
+  padding: 10px 5px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.help-center .menu-items .item .item-icon,
+.logout .menu-items .item .item-icon {
+  grid-area: help-icon;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.help-center .menu-items .item .item-name,
+.logout .menu-items .item .item-name {
+  grid-area: help-text;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }

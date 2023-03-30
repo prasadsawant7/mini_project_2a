@@ -9,7 +9,7 @@ export default function MainMenu() {
       <div className="section-header">Main Menu</div>
       <div className="menu-items">
         <NavLink path="#">
-          <div className="item">
+          <div className="item" id="dashboard">
             <div className="item-icon">
               <BiHomeAlt2 />
             </div>
@@ -19,7 +19,7 @@ export default function MainMenu() {
           </div>
         </NavLink>
         <NavLink path="#">
-          <div className="item">
+          <div className="item" id="blogs">
             <div className="item-icon">
               <RiArticleLine />
             </div>
@@ -29,7 +29,7 @@ export default function MainMenu() {
           </div>
         </NavLink>
         <NavLink path="#">
-          <div className="item">
+          <div className="item" id="crops">
             <div className="item-icon">
               <GiFarmer />
             </div>
