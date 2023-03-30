@@ -62,12 +62,14 @@
 .logout .menu-items a {
   color: #484b53;
   text-decoration: none;
+  border-radius: 10px;
 }
 
 .main-menu .menu-items a,
 .settings .menu-items a {
   display: grid;
   place-items: center;
+  margin: 5px 0px;
 }
 
 .main-menu .menu-items #dashboard {
@@ -75,7 +77,6 @@
   grid-template-columns: 45px 120px;
   grid-template-areas: "dash-icon dash-text";
   padding: 8px 2px;
-  margin: 5px 0px;
   border-radius: 10px;
   font-weight: 600;
 }
@@ -97,7 +98,6 @@
   grid-template-columns: 45px 120px;
   grid-template-areas: "blog-icon blog-text";
   padding: 8px 2px;
-  margin: 5px 0px;
   border-radius: 10px;
   font-weight: 600;
 }
@@ -119,7 +119,6 @@
   grid-template-columns: 45px 120px;
   grid-template-areas: "crop-icon crop-text";
   padding: 8px 2px;
-  margin: 5px 0px;
   border-radius: 10px;
   font-weight: 600;
 }
@@ -141,7 +140,6 @@
   grid-template-columns: 45px 120px;
   grid-template-areas: "prof-icon prof-text";
   padding: 8px 2px;
-  margin: 5px 0px;
   border-radius: 10px;
   font-weight: 600;
 }
@@ -163,7 +161,6 @@
   grid-template-columns: 45px 120px;
   grid-template-areas: "set-icon set-text";
   padding: 8px 2px;
-  margin: 5px 0px;
   border-radius: 10px;
   font-weight: 600;
 }
@@ -184,10 +181,19 @@
 .settings .menu-items .item:hover,
 .help-center .menu-items .item:hover,
 .logout .menu-items .item:hover {
-  background-color: blue;
-  color: #ffffff;
+  background-color: #e9f2ff;
+  color: #237aff;
   transition: all 0.5s ease-in-out;
 }
+
+.main-menu .menu-items .active,
+.settings .menu-items .active,
+.help-center .menu-items .active {
+  background-color: #e9f2ff;
+  color: #237aff;
+  transition: all 0.5s ease-in-out;
+}
+
 .main-menu .menu-items .item .item-icon,
 .settings .menu-items .item .item-icon,
 .main-menu .menu-items .item .item-name,

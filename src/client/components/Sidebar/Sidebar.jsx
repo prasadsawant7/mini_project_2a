@@ -5,6 +5,7 @@ import Settings from "./Settings";
 import HelpCenter from "./HelpCenter";
 import Logout from "./Logout";
 import Navbar from "../Navbar/Navbar";
+import { Outlet } from "react-router";
 
 export default function Sidebar() {
   return (
@@ -18,7 +19,9 @@ export default function Sidebar() {
       </div>
       <div className="main-content">
         <Navbar />
-        <div className="content">Content</div>
+        <div className="content">
+          <Outlet />
+        </div>
       </div>
     </>
   );

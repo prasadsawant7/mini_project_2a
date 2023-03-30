@@ -5,7 +5,7 @@ export default function HelpCenter() {
   return (
     <div className="help-center">
       <div className="menu-items">
-        <NavLink path="#">
+        <NavLink to="helpcenter">
           <div className="item">
             <div className="item-icon">
               <TbHelpHexagon />
