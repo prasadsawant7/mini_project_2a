@@ -42,6 +42,12 @@
   grid-area: main-menu;
   padding: 25px;
 }
+
+.settings {
+  grid-area: settings;
+  padding: 25px;
+}
+
 .main-menu .section-header,
 .settings .section-header {
   font-size: 14px;
@@ -62,11 +68,12 @@
 .logout .menu-items a {
   color: #484b53;
   text-decoration: none;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .main-menu .menu-items a,
-.settings .menu-items a {
+.settings .menu-items a,
+.help-center .menu-items a {
   display: grid;
   place-items: center;
   margin: 5px 0px;
@@ -77,7 +84,7 @@
   grid-template-columns: 45px 120px;
   grid-template-areas: "dash-icon dash-text";
   padding: 8px 2px;
-  border-radius: 10px;
+  border-radius: 5px;
   font-weight: 600;
 }
 .main-menu .menu-items #dashboard .item-icon {
@@ -98,7 +105,7 @@
   grid-template-columns: 45px 120px;
   grid-template-areas: "blog-icon blog-text";
   padding: 8px 2px;
-  border-radius: 10px;
+  border-radius: 5px;
   font-weight: 600;
 }
 .main-menu .menu-items #blogs .item-icon {
@@ -119,7 +126,7 @@
   grid-template-columns: 45px 120px;
   grid-template-areas: "crop-icon crop-text";
   padding: 8px 2px;
-  border-radius: 10px;
+  border-radius: 5px;
   font-weight: 600;
 }
 .main-menu .menu-items #crops .item-icon {
@@ -140,7 +147,7 @@
   grid-template-columns: 45px 120px;
   grid-template-areas: "prof-icon prof-text";
   padding: 8px 2px;
-  border-radius: 10px;
+  border-radius: 5px;
   font-weight: 600;
 }
 .settings .menu-items #profile .item-icon {
@@ -161,7 +168,7 @@
   grid-template-columns: 45px 120px;
   grid-template-areas: "set-icon set-text";
   padding: 8px 2px;
-  border-radius: 10px;
+  border-radius: 5px;
   font-weight: 600;
 }
 .settings .menu-items #settings .item-icon {
@@ -177,20 +184,48 @@
   align-items: center;
 }
 
+.help-center {
+  grid-area: help-center;
+  display: grid;
+  place-items: center;
+}
+
+.help-center .menu-items #helpcenter {
+  display: grid;
+  grid-template-columns: 65px 205px;
+  grid-template-areas: "help-icon help-text";
+  padding: 10px 5px;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.help-center .menu-items #helpcenter .item-icon {
+  grid-area: help-icon;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.help-center .menu-items #helpcenter .item-name {
+  grid-area: help-text;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .main-menu .menu-items .item:hover,
 .settings .menu-items .item:hover,
 .help-center .menu-items .item:hover,
 .logout .menu-items .item:hover {
-  background-color: #e9f2ff;
-  color: #237aff;
+  background-color: #f0f8e7;
+  color: #008f02;
   transition: all 0.5s ease-in-out;
 }
 
 .main-menu .menu-items .active,
 .settings .menu-items .active,
 .help-center .menu-items .active {
-  background-color: #e9f2ff;
-  color: #237aff;
+  background-color: #f0f8e7;
+  color: #008f02;
   transition: all 0.5s ease-in-out;
 }
 
@@ -204,44 +239,30 @@
   font-weight: 500;
 }
 
-.settings {
-  grid-area: settings;
-  padding: 25px;
-}
-
-.help-center {
-  grid-area: help-center;
-  display: grid;
-  place-items: center;
-}
-
 .logout {
   grid-area: logout;
   display: grid;
   place-items: center;
 }
 
-.help-center .menu-items .item,
 .logout .menu-items .item {
   display: grid;
   grid-template-columns: 65px 205px;
-  grid-template-areas: "help-icon help-text";
+  grid-template-areas: "log-icon log-text";
   padding: 10px 5px;
-  border-radius: 10px;
+  border-radius: 5px;
   font-weight: 600;
 }
 
-.help-center .menu-items .item .item-icon,
 .logout .menu-items .item .item-icon {
-  grid-area: help-icon;
+  grid-area: log-icon;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.help-center .menu-items .item .item-name,
 .logout .menu-items .item .item-name {
-  grid-area: help-text;
+  grid-area: log-text;
   display: flex;
   justify-content: flex-start;
   align-items: center;

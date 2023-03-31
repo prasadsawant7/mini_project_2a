@@ -6,7 +6,7 @@ export default function HelpCenter() {
     <div className="help-center">
       <div className="menu-items">
         <NavLink to="helpcenter">
-          <div className="item">
+          <div className="item" id="helpcenter">
             <div className="item-icon">
               <TbHelpHexagon />
             </div>

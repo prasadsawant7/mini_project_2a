@@ -22,7 +22,7 @@ export default function Dashboard() {
   let year = todayDate.getFullYear();
   return (
     <div className="dashboard">
-      <h1>Welcome back, Shetkari!</h1>
+      <h1 className="text-white">Welcome back, Shetkari!</h1>
       <div className="date">
         <div className="date-icon">
           <FcCalendar />

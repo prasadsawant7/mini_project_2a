@@ -4,7 +4,6 @@ module.exports = {
     "./index.html",
     "./src/client/**/*.{js,ts,jsx,tsx}",
     "./src/client/components/**/*.{js,ts,jsx,tsx}",
-    "./src/client/components/MainMenu/Dashboard/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {},
