@@ -29,6 +29,7 @@
 .head .branding .brand_name {
   font-size: 18px;
   font-weight: 600;
+  font-family: "Poppins";
 }
 .head .collapse {
   display: flex;

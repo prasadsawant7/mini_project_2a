@@ -1,0 +1,260 @@
+.dashboard {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 848px 28%;
+  grid-template-areas: "userdata recommendations";
+  gap: 10px;
+}
+
+.dashboard .userdata {
+  grid-area: userdata;
+  display: grid;
+  grid-template-rows: 50px 50px 570px;
+}
+
+.dashboard .greet-user {
+  font-size: 30px;
+  font-weight: 700;
+  display: grid;
+  place-items: start;
+}
+
+.dashboard .date {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.dashboard .date .date-icon {
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+.dashboard .date .date-text {
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.dashboard .analytics {
+  display: grid;
+  grid-template-rows: 285px 285px;
+  gap: 10px;
+}
+
+.dashboard .analytics .row1 {
+  display: grid;
+  grid-template-columns: repeat(2, 420px);
+  gap: 8px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.dashboard .analytics .row1 #weather {
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+    rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  overflow: hidden;
+}
+
+.dashboard .analytics .row1 #weather .sunny {
+  height: 93%;
+  border-radius: 20px;
+  padding: 10px;
+  background: url("../../../../../public/assets/images/Weather/Shiny.jpg");
+  background-repeat: no-repeat;
+  background-size: 500px 290px;
+  display: grid;
+  grid-template-rows: repeat(3, 70px);
+  grid-template-areas: "weather" "weather-details" "weather-other-details";
+}
+
+.dashboard .analytics .row1 #weather .cold {
+  height: 93%;
+  border-radius: 20px;
+  padding: 10px;
+  background: url("../../../../../public/assets/images/Weather/Cold.jpg");
+  background-repeat: no-repeat;
+  background-size: 500px 290px;
+  display: grid;
+  grid-template-rows: repeat(3, 70px);
+  grid-template-areas: "weather" "weather-details" "weather-other-details";
+}
+
+.dashboard .analytics .row1 #weather .rainy {
+  height: 93%;
+  border-radius: 20px;
+  padding: 10px;
+  background: url("../../../../../public/assets/images/Weather/Rainy.jpg");
+  background-repeat: no-repeat;
+  background-size: 500px 290px;
+  display: grid;
+  grid-template-rows: repeat(3, 70px);
+  grid-template-areas: "weather" "weather-details" "weather-other-details";
+}
+
+.dashboard .analytics .row1 #weather .cloudy {
+  height: 100%;
+  border-radius: 20px;
+  padding: 20px;
+  background: url("../../../../../public/assets/images/Weather/Sunny.jpg");
+  background-repeat: no-repeat;
+  background-size: 500px 290px;
+  display: grid;
+  grid-template-rows: 50px 95px 95px;
+  grid-template-areas: "weather" "weather-details" "weather-other-details";
+}
+
+.dashboard .analytics .row1 #weather .weather-header {
+  display: flex;
+  justify-content: flex-start;
+  color: black;
+}
+
+.dashboard .analytics .row1 #weather .weather-header .weather-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  background-color: #ffffff;
+  color: orange;
+  border-radius: 100px;
+  padding: 10px;
+  margin-right: 20px;
+}
+
+.dashboard
+  .analytics
+  .row1
+  #weather
+  .weather-header
+  .weather-text
+  .weather-text-head {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.dashboard
+  .analytics
+  .row1
+  #weather
+  .weather-header
+  .weather-text
+  .weather-text-subhead {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.dashboard .analytics .row1 #weather .weather-details {
+  color: #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.dashboard .analytics .row1 #weather .weather-details .temparature {
+  font-size: 40px;
+}
+
+.dashboard .analytics .row1 #weather .weather-details .weather {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.dashboard .analytics .row1 #weather .weather-other-details {
+  /* background-color: greenyellow; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard .analytics .row1 #weather .weather-other-details .pressure {
+  background-color: #19283f;
+  border-radius: 20px;
+  width: 115px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.dashboard .analytics .row1 #weather .weather-other-details .visibility {
+  background-color: #cce16a;
+  color: #000000;
+  border-radius: 20px;
+  width: 115px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.dashboard .analytics .row1 #weather .weather-other-details .humidity {
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 20px;
+  width: 115px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard .analytics .row1 #weather .weather-other-details .pressure .head,
+.dashboard .analytics .row1 #weather .weather-other-details .visibility .head,
+.dashboard .analytics .row1 #weather .weather-other-details .humidity .head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.dashboard .analytics .row1 #weather .weather-other-details .pressure .data,
+.dashboard .analytics .row1 #weather .weather-other-details .visibility .data,
+.dashboard .analytics .row1 #weather .weather-other-details .humidity .data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard .analytics .row1 .col2 {
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+    rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+
+.dashboard .analytics .row2 {
+  display: grid;
+  grid-template-columns: repeat(3, 280px);
+  gap: 4px;
+}
+
+.dashboard .analytics .row2 .col1 {
+  /* border: 0.1px solid black; */
+  border-radius: 20px;
+  padding: 10px;
+}
+.dashboard .analytics .row2 .col2 {
+  /* border: 0.1px solid black; */
+  border-radius: 20px;
+  padding: 10px;
+}
+.dashboard .analytics .row2 .col3 {
+  /* border: 0.1px solid black; */
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.dashboard .recommendations {
+  grid-area: recommendations;
+  border: 0.1px solid black;
+}
