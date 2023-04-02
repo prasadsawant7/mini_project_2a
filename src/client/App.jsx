@@ -8,7 +8,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Dashboard from "./components/MainMenu/Dashboard/Dashboard";
 import Blogs from "./components/MainMenu/Blogs/Blogs";
 import Crops from "./components/MainMenu/Crops/Crops";
-import Profile from "./components/SettingsMenu/Profile/Profile";  
+import Profile from "./components/SettingsMenu/Profile/Profile";
 import Settings from "./components/SettingsMenu/Settings/Settings";
 import HelpCenter from "./components/HelpCenter/HelpCenter";
 

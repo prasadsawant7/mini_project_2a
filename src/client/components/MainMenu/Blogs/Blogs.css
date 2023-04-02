@@ -1,0 +1,28 @@
+.blogs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.blogs #products td,
+#products th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.blogs #products tr:nth-child(even) {
+  background-color: #e0e0e0;
+}
+
+.blogs #products tr:hover {
+  background-color: #ddd;
+}
+
+.blogs #products th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04aa6d;
+  color: white;
+}
