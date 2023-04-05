@@ -1,3 +1,33 @@
+:root {
+  --Sunny: url("../../../../../public/assets/images/Weathers/Sunny.jpg");
+  --Clear: url("../../../../../public/assets/images/Weathers/Clear.jpg");
+  --Partly-cloudy: url("../../../../../public/assets/images/Weathers/Partly_Cloudy.jpg");
+  --Cloudy: url("../../../../../public/assets/images/Weathers/Sunny.jpg");
+  --Overcast: url("../../../../../public/assets/images/Weathers/Overcast.jpg");
+  --Mist: url("../../../../../public/assets/images/Weathers/Mist.jpg");
+  --Fog: url("../../../../../public/assets/images/Weathers/Fog.jpg");
+  --Freezing-fog: url("../../../../../public/assets/images/Weathers/Freezing_Fog.jpg");
+  --Patchy-rain-possible: url("../../../../../public/assets/images/Weathers/.jpg");
+  --Patchy-snow-possible: url("../../../../../public/assets/images/Weathers/.jpg");
+  --Patchy-sleet-possible: url("../../../../../public/assets/images/Weathers/.jpg");
+  --Patchy-freezing-drizzlepossible: url("../../../../../public/assets/images/Weathers/.jpg");
+  --Thundery-outbreaks-possible: url("../../../../../public/assets/images/Weathers/.jpg");
+  --Blowing-snow: url("../../../../../public/assets/images/Weathers/.jpg");
+  --Blizzard: url("../../../../../public/assets/images/Weathers/Blizzard.jpg");
+  --Moderate-or-heavy-rain-shower: url("../../../../../public/assets/images/Weathers/.jpg");
+  --Torrential-rain-shower: url("../../../../../public/assets/images/Weathers/.jpg");
+  --Light-rain: url("../../../../../public/assets/images/Weathers/Light_Rain.jpg");
+  --Moderate-rain: url("../../../../../public/assets/images/Weathers/Moderate_Rain.jpg");
+  --Heavy-rain: url("../../../../../public/assets/images/Weathers/Heavy_Rain.jpg");
+  --Light-freezing-rain: url("../../../../../public/assets/images/Weathers/.jpg");
+  --Moderate-or-heavy-freezing-rain: url("../../../../../public/assets/images/Weathers/.jpg");
+  --Light-sleet: url("../../../../../public/assets/images/Weathers/.jpg");
+  --Moderate-or-heavy-sleet: url("../../../../../public/assets/images/Weathers/.jpg");
+  --Light-snow: url("../../../../../public/assets/images/Weathers/.jpg");
+  --Moderate-or-heavy-snow: url("../../../../../public/assets/images/Weathers/.jpg");
+  --Ice-pellets: url("../../../../../public/assets/images/Weathers/.jpg");
+}
+
 .dashboard {
   padding: 20px;
   display: grid;
@@ -55,58 +85,46 @@
 
 .dashboard .analytics .row1 #weather {
   border-radius: 20px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
-    rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
-    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
   overflow: hidden;
 }
 
-.dashboard .analytics .row1 #weather .sunny {
-  height: 93%;
-  border-radius: 20px;
-  padding: 10px;
-  background: url("../../../../../public/assets/images/Weather/Shiny.jpg");
-  background-repeat: no-repeat;
-  background-size: 500px 290px;
-  display: grid;
-  grid-template-rows: repeat(3, 70px);
-  grid-template-areas: "weather" "weather-details" "weather-other-details";
+.dashboard .analytics .row1 #weather:hover {
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+    rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
 }
 
-.dashboard .analytics .row1 #weather .cold {
-  height: 93%;
-  border-radius: 20px;
-  padding: 10px;
-  background: url("../../../../../public/assets/images/Weather/Cold.jpg");
-  background-repeat: no-repeat;
-  background-size: 500px 290px;
-  display: grid;
-  grid-template-rows: repeat(3, 70px);
-  grid-template-areas: "weather" "weather-details" "weather-other-details";
-}
-
+.dashboard .analytics .row1 #weather .sunny,
+.dashboard .analytics .row1 #weather .cold,
+.dashboard .analytics .row1 #weather .cloudy,
 .dashboard .analytics .row1 #weather .rainy {
-  height: 93%;
-  border-radius: 20px;
-  padding: 10px;
-  background: url("../../../../../public/assets/images/Weather/Rainy.jpg");
-  background-repeat: no-repeat;
-  background-size: 500px 290px;
-  display: grid;
-  grid-template-rows: repeat(3, 70px);
-  grid-template-areas: "weather" "weather-details" "weather-other-details";
-}
-
-.dashboard .analytics .row1 #weather .cloudy {
   height: 100%;
   border-radius: 20px;
   padding: 20px;
-  background: url("../../../../../public/assets/images/Weather/Sunny.jpg");
-  background-repeat: no-repeat;
-  background-size: 500px 290px;
   display: grid;
   grid-template-rows: 50px 95px 95px;
   grid-template-areas: "weather" "weather-details" "weather-other-details";
+}
+
+.dashboard .analytics .row1 #weather .sunny {
+  background: var(--Sunny);
+  background-repeat: no-repeat;
+  background-size: 500px 290px;
+}
+.dashboard .analytics .row1 #weather .cold {
+  background: var(--Cold);
+  background-repeat: no-repeat;
+  background-size: 500px 290px;
+}
+.dashboard .analytics .row1 #weather .cloudy {
+  background: var(--Cloudy);
+  background-repeat: no-repeat;
+  background-size: 500px 290px;
+}
+.dashboard .analytics .row1 #weather .rainy {
+  background: var(--Rainy);
+  background-repeat: no-repeat;
+  background-size: 500px 290px;
 }
 
 .dashboard .analytics .row1 #weather .weather-header {
@@ -125,6 +143,11 @@
   border-radius: 100px;
   padding: 10px;
   margin-right: 20px;
+}
+
+.dashboard .analytics .row1 #weather .weather-header .weather-icon img {
+  width: 30px;
+  height: 30px;
 }
 
 .dashboard
@@ -227,6 +250,9 @@
 
 .dashboard .analytics .row1 .col2 {
   border-radius: 20px;
+}
+
+.dashboard .analytics .row1 .col2:hover {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
     rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
     rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;

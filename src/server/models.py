@@ -1,20 +1,30 @@
 from tortoise.models import Model
 from tortoise import fields
 from tortoise.contrib.pydantic import pydantic_model_creator
+from datetime import datetime
+import pytz
 
 class Admin(Model):
-    id = fields.IntField(pk=True)
-    first_name = fields.CharField(max_length=15, nullable=False)
-    last_name = fields.CharField(max_length=15, nullable=False)
-    username = fields.CharField(max_length=50, unique=True, nullable=False)
-    password = fields.CharField(max_length=20, nullable=False)
+    id = fields.IntField(pk = True, index = True)
+    first_name = fields.CharField(max_length = 20, null = False)
+    last_name = fields.CharField(max_length = 20, null = False)
+    username = fields.CharField(max_length = 20, unique = True, null = False)
+    phone = fields.CharField(max_length = 15, unique = True, null = False)
+    password = fields.CharField(max_length = 100, null = False)
+    is_verified = fields.BooleanField(default = False)
+    IST = pytz.timezone('Asia/Kolkata')
+    join_data = fields.DatetimeField(default = datetime.now(IST))
 
 class User(Model):
-    id = fields.IntField(pk=True)
-    first_name = fields.CharField(max_length=15, nullable=False)
-    last_name = fields.CharField(max_length=15, nullable=False)
-    username = fields.CharField(max_length=50, unique=True, nullable=False)
-    password = fields.CharField(max_length=20, nullable=False)
+    id = fields.IntField(pk = True, index = True)
+    first_name = fields.CharField(max_length = 20, null = False)
+    last_name = fields.CharField(max_length = 20, null = False)
+    username = fields.CharField(max_length = 20, unique = True, null = False)
+    phone = fields.CharField(max_length = 15, unique = True, null = False)
+    password = fields.CharField(max_length = 100, null = False)
+    is_verified = fields.BooleanField(default = False)
+    IST = pytz.timezone('Asia/Kolkata')
+    join_data = fields.DatetimeField(default = datetime.now(IST))
 
 # class District(Model):
 #     id = fields.IntField(pk=True)
@@ -39,12 +49,14 @@ class Blog(Model):
     author = fields.ForeignKeyField("models.User", related_name="blog_written")
 
 # Admin Pydantic Models
-admin_pydantic = pydantic_model_creator(Admin, name="Admin")
+admin_pydantic = pydantic_model_creator(Admin, name="Admin", exclude=("is_verified",))
 admin_pydanticIn = pydantic_model_creator(Admin, name="AdminIn", exclude_readonly=True)
+admin_pydanticOut = pydantic_model_creator(Admin, name="AdminOut", exclude=("password",))
 
 # User Pydantic Models
-user_pydantic = pydantic_model_creator(User, name="User")
+user_pydantic = pydantic_model_creator(User, name="User", exclude=("is_verified",))
 user_pydanticIn = pydantic_model_creator(User, name="UserIn", exclude_readonly=True)
+user_pydanticOut = pydantic_model_creator(User, name="UserOut", exclude=("password",))
 
 # District Pydantic Models
 # district_pydantic = pydantic_model_creator(District, name="District")

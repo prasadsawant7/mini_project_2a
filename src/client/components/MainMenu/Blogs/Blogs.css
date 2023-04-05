@@ -2,27 +2,110 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 100%;
+  margin-bottom: 35px;
 }
 
-.blogs #products td,
-#products th {
-  border: 1px solid #ddd;
-  padding: 8px;
+.blogs .container {
+  width: 90%;
+  height: 95%;
 }
 
-.blogs #products tr:nth-child(even) {
-  background-color: #e0e0e0;
+.blogs .container hr {
+  border: 0.5px solid rgb(225, 225, 225);
+  margin-bottom: 20px;
 }
 
-.blogs #products tr:hover {
-  background-color: #ddd;
+.blogs .header {
+  height: 10%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "heading search create-blog";
+  margin-bottom: 10px;
 }
 
-.blogs #products th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #04aa6d;
-  color: white;
+.blogs .header .heading {
+  grid-area: heading;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+  padding-left: 10px;
+}
+
+.blogs .header .search {
+  grid-area: search;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.blogs .header .search .search-bar {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.blogs .header .search .search-bar .col1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blogs .header .search .search-bar .col2 {
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.blogs .header .search .search-bar .col1 .search-icons,
+.blogs .header .search .search-bar .col2 .search-icons {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.blogs .header .search .search-bar input {
+  outline: 0;
+  border: 0;
+  padding: 10px;
+  margin: 0px 10px;
+}
+
+.blogs .header .create-blog {
+  grid-area: create-blog;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.blogs .header .create-blog-btn {
+  padding: 5px 15px;
+  border-radius: 10px;
+  background-color: #191919;
+  color: #ffffff;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.blogs .listed-blogs {
+  height: 90%;
+  display: grid;
+  grid-template-columns: repeat(2, 500px);
+  grid-template-rows: 500px;
+  column-gap: 110px;
+  row-gap: 50px;
+  justify-content: center;
+}
+
+.blogs .listed-blogs .blog {
+  background-color: red;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

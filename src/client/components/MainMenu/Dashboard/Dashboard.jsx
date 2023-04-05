@@ -26,6 +26,7 @@ export default function Dashboard() {
   const [username, setUsername] = useState(null);
   const [address, setAddress] = useState(null);
   const [weather, setWeather] = useState(null);
+  const [weatherIcon, setWeatherIcon] = useState(null);
   const [temp, setTemp] = useState(null);
   const [pres, setPres] = useState(null);
   const [vis, setVis] = useState(null);
@@ -68,6 +69,7 @@ export default function Dashboard() {
       const data = await res.json();
       setAddress(`${data?.location?.name}, ${data?.location?.region}`);
       setWeather(capitalizeEveryFirstLetter(data?.current?.condition?.text));
+      setWeatherIcon(data?.current?.condition?.icon);
       setTemp(data?.current?.temp_c);
       setPres(data?.current?.pressure_mb);
       setVis(data?.current?.vis_km);
@@ -102,7 +104,11 @@ export default function Dashboard() {
               <div className="cloudy">
                 <div className="weather-header">
                   <div className="weather-icon">
-                    <TiWeatherCloudy />
+                    {weatherIcon ? (
+                      <img src={`https:${weatherIcon}`} alt="Weather" />
+                    ) : (
+                      <TiWeatherCloudy />
+                    )}
                   </div>
                   <div className="weather-text">
                     <div className="weather-text-head">{address}</div>

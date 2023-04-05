@@ -2,8 +2,12 @@ from fastapi import FastAPI
 from fastapi import HTTPException
 from tortoise.contrib.fastapi import register_tortoise
 from fastapi.middleware.cors import CORSMiddleware
-from models import (admin_pydantic, admin_pydanticIn, Admin, user_pydantic, user_pydanticIn, User, crop_pydantic, crop_pydanticIn, Crop, blog_pydantic, blog_pydanticIn, Blog)
-# from models import (supplier_pydantic, supplier_pydanticIn, Supplier, product_pydantic, product_pydanticIn, Product)
+from models import *
+from auth import *
+from datetime import datetime
+import pytz
+
+IST = pytz.timezone('Asia/Kolkata')
 
 app = FastAPI()
 
@@ -22,19 +26,39 @@ def index():
 
 # Admin APIs
 @app.post("/admin")
-async def add_admin(admin_info: admin_pydanticIn):
-    admin_obj = await Admin.create(**admin_info.dict(exclude_unset=True))
-    response = await admin_pydantic.from_tortoise_orm(admin_obj)
-    return {"status": "ok", "data": response}
+async def add_admin(admin: admin_pydanticIn):
+    admin_info = admin.dict(exclude_unset=True)
+    admin_info["password"] = get_hashed_password(admin_info["password"])
+    # Sending OTP
+    verification = send_otp(admin_info['phone'])
+    # Propt to enter otp
+    otp_code = input("Please enter the OTP:")
+    # Verify OTP
+    verification_status = verify_otp(admin_info['phone'], otp_code)
+    if verification_status == 'approved':
+        admin_info["is_verified"] = True
+        admin_obj = await Admin.create(**admin_info)
+        admin_obj.join_data = admin_obj.join_data.astimezone(IST)
+        response = await admin_pydanticOut.from_tortoise_orm(admin_obj)
+        return {"status": "ok", "data": response}
+    else:
+        return {"status": "error", "message": "Invalid OTP"}
 
 @app.get("/admin")
 async def get_all_admin():
-    response = await admin_pydantic.from_queryset(Admin.all())
+    admins = await admin_pydanticOut.from_queryset(Admin.all())
+    response = []
+    for admin in admins:
+        admin.join_data = admin.join_data.astimezone(IST)
+        response.append(admin)
     return {"status": "ok", "data": response}
 
 @app.get("/admin/{admin_id}")
 async def get_specific_admin(admin_id: int):
-    response = await admin_pydantic.from_queryset_single(Admin.get(id=admin_id))
+    admin = await Admin.get(id=admin_id)
+    admin.join_data = admin.join_data.astimezone(IST)
+    await admin.save()
+    response = await admin_pydanticOut.from_tortoise_orm(admin)
     return {"status": "ok", "data": response}
 
 @app.put("/admin/{admin_id}")
@@ -44,9 +68,12 @@ async def update_admin(admin_id: int, update_info: admin_pydanticIn):
     admin.first_name = update_info["first_name"]
     admin.last_name = update_info["last_name"]
     admin.username = update_info["username"]
-    admin.password = update_info["password"]
+    admin.phone = update_info["phone"]
+    admin.password = get_hashed_password(update_info["password"])
+    admin.is_verified = update_info["is_verified"]
+    admin.join_data = admin.join_data.astimezone(IST)
     await admin.save()
-    response = await admin_pydantic.from_tortoise_orm(admin)
+    response = await admin_pydanticOut.from_tortoise_orm(admin)
     return {"status": "ok", "data": response}
 
 @app.delete("/admin/{admin_id}")
@@ -58,19 +85,29 @@ async def delete_admin(admin_id: int):
 
 # User APIs
 @app.post("/user")
-async def add_user(user_info: user_pydanticIn):
-    user_obj = await User.create(**user_info.dict(exclude_unset=True))
-    response = await user_pydantic.from_tortoise_orm(user_obj)
+async def add_user(user: user_pydanticIn):
+    user_info = user.dict(exclude_unset=True)
+    user_info["password"] = get_hashed_password(user_info["password"])
+    user_obj = await User.create(**user_info)
+    user_obj.join_data = user_obj.join_data.astimezone(IST)
+    response = await user_pydanticOut.from_tortoise_orm(user_obj)
     return {"status": "ok", "data": response}
 
 @app.get("/user")
 async def get_all_user():
-    response = await user_pydantic.from_queryset(User.all())
+    users = await user_pydanticOut.from_queryset(User.all())
+    response = []
+    for user in users:
+        user.join_data = user.join_data.astimezone(IST)
+        response.append(user)
     return {"status": "ok", "data": response}
 
 @app.get("/user/{user_id}")
 async def get_specific_user(user_id: int):
-    response = await user_pydantic.from_queryset_single(User.get(id=user_id))
+    user = await User.get(id=user_id)
+    user.join_data = user.join_data.astimezone(IST)
+    await user.save()
+    response = await user_pydanticOut.from_tortoise_orm(user)
     return {"status": "ok", "data": response}
 
 @app.put("/user/{user_id}")
@@ -80,9 +117,12 @@ async def update_user(user_id: int, update_info: user_pydanticIn):
     user.first_name = update_info["first_name"]
     user.last_name = update_info["last_name"]
     user.username = update_info["username"]
-    user.password = update_info["password"]
+    user.phone = update_info["phone"]
+    user.password = get_hashed_password(update_info["password"])
+    user.is_verified = update_info["is_verified"]
+    user.join_data = user.join_data.astimezone(IST)
     await user.save()
-    response = await user_pydantic.from_tortoise_orm(user)
+    response = await user_pydanticOut.from_tortoise_orm(user)
     return {"status": "ok", "data": response}
 
 @app.delete("/user/{user_id}")
@@ -108,7 +148,7 @@ async def get_all_crop():
     for crop in crops:
         crop_dict = crop_pydantic.from_orm(crop).dict()
         user_dict = user_pydantic.from_orm(crop.created_by).dict()
-        crop_dict["created_by"] = user_dict
+        crop_dict["created_by"] = user_dict["id"]
         response.append(crop_dict)
     return {"status": "ok", "data": response}
 
@@ -120,7 +160,7 @@ async def get_specific_crop(crop_id: int):
         raise HTTPException(status_code=404, detail="Crop not found")
     crop_dict = crop_pydantic.from_orm(crop).dict()
     user_dict = user_pydantic.from_orm(crop.created_by).dict()
-    crop_dict["created_by"] = user_dict
+    crop_dict["created_by"] = user_dict["id"]
     return {"status": "ok", "data": crop_dict}
 
 @app.put("/crop/{crop_id}")
@@ -148,19 +188,31 @@ async def delete_crop(crop_id: int):
 @app.post("/blog/{user_id}")
 async def add_blog(user_id: int, blog_info: blog_pydanticIn):
     user = await User.get(id=user_id)
-    blog_obj = await Blog.create(**blog_info.dict(exclude_unset=True))
+    blog_info = blog_info.dict(exclude_unset=True)
+    blog_obj = await Blog.create(**blog_info, author = user)
     response = await blog_pydantic.from_tortoise_orm(blog_obj)
     return {"status": "ok", "data": response}
 
 @app.get("/blog")
 async def get_all_blog():
-    response = await blog_pydantic.from_queryset(Blog.all())
+    blogs = await Blog.filter().prefetch_related("author")
+    response = []
+    for blog in blogs:
+        blog_dict = blog_pydantic.from_orm(blog).dict()
+        user_dict = user_pydantic.from_orm(blog.author).dict()
+        blog_dict["author"] = user_dict["id"]
+        response.append(blog_dict)
     return {"status": "ok", "data": response}
 
 @app.get("/blog/{blog_id}")
 async def get_specific_blog(blog_id: int):
-    response = await blog_pydantic.from_queryset_single(Blog.get(id=blog_id))
-    return {"status": "ok", "data": response}
+    blog = await Blog.filter(id=blog_id).prefetch_related("author").first()
+    if not blog:
+        raise HTTPException(status_code=404, detail="Blog not found")
+    blog_dict = blog_pydantic.from_orm(blog).dict()
+    user_dict = user_pydantic.from_orm(blog.author).dict()
+    blog_dict["author"] = user_dict["id"]
+    return {"status": "ok", "data": blog_dict}
 
 @app.put("/blog/{blog_id}")
 async def update_blog(blog_id: int, update_info: blog_pydanticIn):
