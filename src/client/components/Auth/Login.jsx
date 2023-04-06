@@ -7,6 +7,7 @@ export default function Login() {
     <div className="login">
       <div className="page-title">Login</div>
       <div className="greet-message">Hi, Welcome back 👋🏼</div>
+      <div className="error-message">Username or Password or Usertype is wrong!</div>
       <Form className="form">
         <label htmlFor="username">Username</label>
         <input
@@ -22,6 +23,11 @@ export default function Login() {
           id="password"
           placeholder="Enter your password"
         />
+        <label htmlFor="usertype">Usertype</label>
+        <select name="usertype" id="usertype">
+          <option value="admin">Admin</option>
+          <option value="farmer">Farmer</option>
+        </select>
         <button type="submit">Login</button>
       </Form>
       <div className="create-account">

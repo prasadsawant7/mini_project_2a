@@ -34,40 +34,139 @@
   place-items: center;
 }
 
-.auth .forms .login .page-title {
+.auth .forms .login .page-title,
+.auth .forms .signup .page-title {
   font-size: 40px;
   font-weight: 500;
 }
 
-.auth .forms .login .greet-message {
+.auth .forms .login .greet-message,
+.auth .forms .signup .greet-message {
   font-size: 15px;
   font-weight: 500;
   margin-bottom: 30px;
+  width: 400px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.auth .forms .login .error-message {
+  margin: 10px 0px 20px;
+  color: #cc0000;
+  display: none;
 }
 
 .auth .forms .login .form {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
-.auth .forms .login .form label {
+.auth .forms .signup .form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.auth .forms .signup .form .row1,
+.row2,
+.row3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.auth .forms .signup .form .row1 .fname,
+.lname {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 5px 0px;
+}
+
+.auth .forms .signup .form .row2 .username,
+.phone {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 5px 0px;
+}
+
+.auth .forms .signup .form .row3 .password,
+.usertype {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 5px 0px;
+}
+
+.auth .forms .signup .form .row3 .usertype {
+  width: 46%;
+}
+
+.auth .forms .login .form label,
+.auth .forms .signup .form .row1 label,
+.row2 label,
+.row3 label {
   font-size: 15px;
   font-weight: 500;
 }
 
-.auth .forms .login .form input {
-  width: 300px;
+.auth .forms .login .form input,
+.auth .forms .signup .form .row1 input,
+.row2 input,
+.row3 input {
+  box-sizing: border-box;
+  width: 100%;
   border: 0.5px solid #c5c6d0;
   padding: 10px;
   border-radius: 5px;
   margin: 5px 0px 20px 0px;
 }
 
-.auth .forms .login .form input:focus {
+.auth .forms .login .form select {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px 0px 20px 0px;
+  border: 0;
+  outline: 0.5px solid #c5c6d0;
+  border-right: 15px solid transparent;
+}
+
+.auth .forms .signup .form .row3 select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px 0px 20px 0px;
+  border: 0;
+  outline: 0.5px solid #c5c6d0;
+  border-right: 15px solid transparent;
+}
+
+.auth .forms .login .form input:focus,
+.auth .forms .signup .form .row1 input:focus,
+.auth .forms .signup .form .row2 input:focus,
+.auth .forms .login .form select:focus,
+.auth .forms .signup .form .row3 select:focus {
   outline-color: #008f02;
 }
 
-.auth .forms .login .form button {
+.auth .forms .signup .form .row3 input:focus {
+  outline-color: #cc0000;
+}
+
+.auth .forms .login .form button,
+.auth .forms .signup .form button {
+  box-sizing: border-box;
+  width: 100%;
   margin: 10px 0px 20px;
   padding: 10px;
   border-radius: 5px;
@@ -80,7 +179,8 @@
   cursor: pointer;
 }
 
-.auth .forms .login .create-account {
+.auth .forms .login .create-account,
+.auth .forms .signup .login-account {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -88,7 +188,8 @@
   font-weight: 500;
 }
 
-.auth .forms .login .create-account a {
+.auth .forms .login .create-account a,
+.auth .forms .signup .login-account a {
   display: flex;
   justify-content: center;
   align-items: center;
