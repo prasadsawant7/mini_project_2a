@@ -8,7 +8,7 @@ export default function MainMenu() {
     <div className="main-menu">
       <div className="section-header">Main Menu</div>
       <div className="menu-items">
-        <NavLink to="/">
+        <NavLink to="dashboard">
           <div className="item" id="dashboard">
             <div className="item-icon">
               <BiHomeAlt2 />

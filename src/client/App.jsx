@@ -11,17 +11,26 @@ import Crops from "./components/MainMenu/Crops/Crops";
 import Profile from "./components/SettingsMenu/Profile/Profile";
 import Settings from "./components/SettingsMenu/Settings/Settings";
 import HelpCenter from "./components/HelpCenter/HelpCenter";
+import Auth from "./components/Auth/Auth";
+import Login from "./components/Auth/Login";
+import Signup from "./components/Auth/Signup";
 
 export default function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<Sidebar />}>
-        <Route index element={<Dashboard />} />
-        <Route path="blogs" element={<Blogs />} />
-        <Route path="crops" element={<Crops />} />
-        <Route path="profile" element={<Profile />} />
-        <Route path="settings" element={<Settings />} />
-        <Route path="helpcenter" element={<HelpCenter />} />
+      <Route>
+        <Route path="auth" element={<Auth />}>
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<Signup />} />
+        </Route>
+        <Route path="/" element={<Sidebar />}>
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="blogs" element={<Blogs />} />
+          <Route path="crops" element={<Crops />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="settings" element={<Settings />} />
+          <Route path="helpcenter" element={<HelpCenter />} />
+        </Route>
       </Route>
     )
   );

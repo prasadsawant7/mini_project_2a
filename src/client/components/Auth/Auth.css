@@ -1,0 +1,98 @@
+.auth {
+  font-family: "Poppins";
+  display: grid;
+  grid-template-columns: 42% 58%;
+  grid-template-rows: 100vh;
+  grid-template-areas: "images forms";
+}
+
+.auth .images {
+  grid-area: images;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 50% 50%;
+  grid-template-areas: "image1" "image2";
+}
+
+.auth .images #image1 {
+  grid-area: image1;
+  background: url("./../../../public/assets/images/Auth-BG1.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.auth .images #image2 {
+  grid-area: image2;
+  background: url("./../../../public/assets/images/Auth-BG2.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.auth .forms {
+  grid-area: forms;
+  display: grid;
+  place-items: center;
+}
+
+.auth .forms .login .page-title {
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.auth .forms .login .greet-message {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.auth .forms .login .form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth .forms .login .form label {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.auth .forms .login .form input {
+  width: 300px;
+  border: 0.5px solid #c5c6d0;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px 0px 20px 0px;
+}
+
+.auth .forms .login .form input:focus {
+  outline-color: #008f02;
+}
+
+.auth .forms .login .form button {
+  margin: 10px 0px 20px;
+  padding: 10px;
+  border-radius: 5px;
+  outline: 0;
+  border: none;
+  background-color: #f0f8e7;
+  color: #008f02;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.auth .forms .login .create-account {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.auth .forms .login .create-account a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  margin-left: 5px;
+  color: #008f02;
+}

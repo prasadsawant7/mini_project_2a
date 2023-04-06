@@ -9,7 +9,7 @@ import { Outlet } from "react-router";
 
 export default function Sidebar() {
   return (
-    <>
+    <div className="container">
       <div className="sidebar">
         <Head />
         <MainMenu />
@@ -23,6 +23,6 @@ export default function Sidebar() {
           <Outlet />
         </div>
       </div>
-    </>
+    </div>
   );
 }
