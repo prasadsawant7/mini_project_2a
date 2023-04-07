@@ -31,7 +31,7 @@ export default function Signup() {
         and features to help grow your farm. Create an account now to get
         started!
       </div>
-      {/* <div className="error-message"></div> */}
+      <div className="error-message"></div>
       <Form className="form">
         <div className="row1">
           <div className="fname">

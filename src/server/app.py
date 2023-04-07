@@ -30,19 +30,14 @@ async def add_admin(admin: admin_pydanticIn):
     admin_info = admin.dict(exclude_unset=True)
     admin_info["password"] = get_hashed_password(admin_info["password"])
     # Sending OTP
-    verification = send_otp(admin_info['phone'])
-    # Propt to enter otp
-    otp_code = input("Please enter the OTP:")
-    # Verify OTP
-    verification_status = verify_otp(admin_info['phone'], otp_code)
-    if verification_status == 'approved':
-        admin_info["is_verified"] = True
+    verification = send_otp(admin_info["phone"])
+    if verification.status == "pending":
         admin_obj = await Admin.create(**admin_info)
         admin_obj.join_data = admin_obj.join_data.astimezone(IST)
         response = await admin_pydanticOut.from_tortoise_orm(admin_obj)
         return {"status": "ok", "data": response}
     else:
-        return {"status": "error", "message": "Invalid OTP"}
+        return {"status": "ok", "message": "Invalid Phone Number"}
 
 @app.get("/admin")
 async def get_all_admin():
@@ -75,6 +70,20 @@ async def update_admin(admin_id: int, update_info: admin_pydanticIn):
     await admin.save()
     response = await admin_pydanticOut.from_tortoise_orm(admin)
     return {"status": "ok", "data": response}
+
+@app.put("/admin/otpverification/{admin_id}")
+async def verify_admin(admin_id: int, otp_code: int):
+    admin = await Admin.get(id=admin_id)
+    # Verify OTP
+    verification_status = verify_otp(admin.phone, otp_code)
+    if verification_status == 'approved':
+        admin.is_verified = True
+        await admin.save()
+        response = await admin_pydanticOut.from_tortoise_orm(admin)
+        return {"status": "ok", "is_verified": response.is_verified}
+    else:
+        return {"status": "error", "message": "Invalid OTP"}
+    
 
 @app.delete("/admin/{admin_id}")
 async def delete_admin(admin_id: int):

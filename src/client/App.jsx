@@ -14,6 +14,7 @@ import HelpCenter from "./components/HelpCenter/HelpCenter";
 import Auth from "./components/Auth/Auth";
 import Login from "./components/Auth/Login";
 import Signup from "./components/Auth/Signup";
+import OTPVerify from "./components/Auth/OTPVerify";
 
 export default function App() {
   const router = createBrowserRouter(
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="auth" element={<Auth />}>
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
+          <Route path="otpverification" element={<OTPVerify />} />
         </Route>
         <Route path="/" element={<Sidebar />}>
           <Route path="dashboard" element={<Dashboard />} />
