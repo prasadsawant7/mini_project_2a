@@ -3,6 +3,7 @@ import "./Blogs.css";
 import axios from "axios";
 import { BiSearch, BiX } from "react-icons/bi";
 import { useRef } from "react";
+import { Link, NavLink, Outlet } from "react-router-dom";
 
 export default function Blogs() {
   // const [products, setProducts] = useState([]);
@@ -117,9 +118,16 @@ export default function Blogs() {
 
   return (
     <div className="blogs">
-      <div className="container">
+      <div className="blogs-container">
         <div className="header">
-          <div className="heading">Blogs</div>
+          <div className="heading">
+            <NavLink to="all-blogs">
+              <button>All Blogs</button>
+            </NavLink>
+            <NavLink to="your-blogs">
+              <button>Your Blogs</button>
+            </NavLink>
+          </div>
           <div className="search">
             <div className="search-bar">
               <div className="col1">
@@ -139,17 +147,14 @@ export default function Blogs() {
             </div>
           </div>
           <div className="create-blog">
-            <button className="create-blog-btn">Create Blog</button>
+            <Link to="create-blog">
+              <button className="create-blog-btn">Create Blog</button>
+            </Link>
           </div>
         </div>
         <hr />
         <div className="listed-blogs">
-          <div className="blog">blog 1</div>
-          <div className="blog">blog 2</div>
-          <div className="blog">blog 3</div>
-          <div className="blog">blog 4</div>
-          <div className="blog">blog 4</div>
-          <div className="blog">blog 4</div>
+          <Outlet />
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@ export default function MainMenu() {
     <div className="main-menu">
       <div className="section-header">Main Menu</div>
       <div className="menu-items">
-        <NavLink to="dashboard">
+        <NavLink to="/">
           <div className="item" id="dashboard">
             <div className="item-icon">
               <BiHomeAlt2 />
@@ -18,7 +18,7 @@ export default function MainMenu() {
             </div>
           </div>
         </NavLink>
-        <NavLink to="blogs">
+        <NavLink to={"blogs"}>
           <div className="item" id="blogs">
             <div className="item-icon">
               <RiArticleLine />

@@ -15,6 +15,9 @@ import Auth from "./components/Auth/Auth";
 import Login from "./components/Auth/Login";
 import Signup from "./components/Auth/Signup";
 import OTPVerify from "./components/Auth/OTPVerify";
+import AllBlogs from "./components/MainMenu/Blogs/AllBlogs";
+import YourBlogs from "./components/MainMenu/Blogs/YourBlogs";
+import CreateBlog from "./components/MainMenu/Blogs/CreateBlog";
 
 export default function App() {
   const router = createBrowserRouter(
@@ -26,8 +29,12 @@ export default function App() {
           <Route path="otpverification" element={<OTPVerify />} />
         </Route>
         <Route path="/" element={<Sidebar />}>
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="blogs" element={<Blogs />} />
+          <Route index element={<Dashboard />} />
+          <Route path="blogs" element={<Blogs />}>
+            <Route path="all-blogs" element={<AllBlogs />} />
+            <Route path="your-blogs" element={<YourBlogs />} />
+            <Route path="create-blog" element={<CreateBlog />} />
+          </Route>
           <Route path="crops" element={<Crops />} />
           <Route path="profile" element={<Profile />} />
           <Route path="settings" element={<Settings />} />

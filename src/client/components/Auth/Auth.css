@@ -70,8 +70,8 @@
 }
 
 .auth .forms .signup .form .row1,
-.row2,
-.row3 {
+.auth .forms .signup .form .row2,
+.auth .forms .signup .form .row3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -79,7 +79,7 @@
 }
 
 .auth .forms .signup .form .row1 .fname,
-.lname {
+.auth .forms .signup .form .row1 .lname {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -88,7 +88,7 @@
 }
 
 .auth .forms .signup .form .row2 .username,
-.phone {
+.auth .forms .signup .form .row2 .phone {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -97,7 +97,7 @@
 }
 
 .auth .forms .signup .form .row3 .password,
-.usertype {
+.auth .forms .signup .form .row3 .usertype {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -111,16 +111,16 @@
 
 .auth .forms .login .form label,
 .auth .forms .signup .form .row1 label,
-.row2 label,
-.row3 label {
+.auth .forms .signup .form .row2 label,
+.auth .forms .signup .form .row3 label {
   font-size: 15px;
   font-weight: 500;
 }
 
 .auth .forms .login .form input,
 .auth .forms .signup .form .row1 input,
-.row2 input,
-.row3 input {
+.auth .forms .signup .form .row2 input,
+.auth .forms .signup .form .row3 input {
   box-sizing: border-box;
   width: 100%;
   border: 0.5px solid #c5c6d0;
@@ -196,4 +196,95 @@
   text-decoration: none;
   margin-left: 5px;
   color: #008f02;
+}
+
+.auth .forms .otp-verify {
+  width: 100%;
+  height: 100%;
+}
+
+.auth .forms .otp-verify .container,
+.auth .forms .otp-verify .container form,
+.auth .forms .otp-verify .container form .input-field,
+.auth .forms .otp-verify .container header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.auth .forms .otp-verify .container {
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  row-gap: 20px;
+}
+.auth .forms .otp-verify .container header {
+  height: 65px;
+  width: 65px;
+  background: #008f02;
+  color: #fff;
+  font-size: 2.5rem;
+  border-radius: 50%;
+}
+.auth .forms .otp-verify .container h4 {
+  font-size: 1.25rem;
+  color: #333;
+  font-weight: 500;
+}
+.auth .forms .otp-verify .container form .input-field {
+  flex-direction: row;
+  column-gap: 10px;
+}
+.auth .forms .otp-verify .container form .input-field input {
+  height: 45px;
+  width: 42px;
+  border-radius: 6px;
+  outline: none;
+  font-size: 1.125rem;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+.auth .forms .otp-verify .container form .input-field input:focus {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+.auth
+  .forms
+  .otp-verify
+  .container
+  form
+  .input-field
+  input::-webkit-inner-spin-button,
+.auth
+  .forms
+  .otp-verify
+  .container
+  form
+  .input-field
+  input::-webkit-outer-spin-button {
+  display: none;
+}
+.auth .forms .otp-verify .container form button {
+  margin-top: 25px;
+  width: 100%;
+  color: #008f02;
+  font-size: 1rem;
+  border: none;
+  padding: 9px 0;
+  cursor: pointer;
+  border-radius: 6px;
+  background: #f0f8e7;
+  transition: all 0.2s ease;
+}
+.auth .forms .otp-verify .container form button:hover,
+.auth .forms .login form button:hover,
+.auth .forms .signup form button:hover {
+  background: #008f02;
+  color: #ffffff;
+  transition: all 0.5s ease-in-out;
+}
+
+.auth .forms .otp-verify .container .error-message {
+  display: none;
+  color: #cc0000;
 }
