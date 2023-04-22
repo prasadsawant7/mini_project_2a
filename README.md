@@ -6,7 +6,7 @@
 
 git clone https://github.com/prasadsawant7/mini_project_2a.git
 
-<!-- Change current workin directory to project directory -->
+<!-- Change current working directory to project directory -->
 cd mini_project_2a
 
 <!-- Install all dependencies first -->
