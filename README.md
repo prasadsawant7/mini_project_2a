@@ -20,6 +20,12 @@ npm run build
 <!-- To start production server -->
 npm run preview
 
+### If you want to create any component
+
+```
+create folder inside src/client/components/ComponentName/ComponentName.jsx
+```
+
 <!-- To start server (FastAPI) -->
 <!-- mini_project_2a/ from this directory use following commands -->
 <!-- Change directory to server folder -->
@@ -71,8 +77,10 @@ npm run status
 # Don't forget to git pull first before git push !!!
 ```
 
-### If you want to create any component
-
-```
-create folder inside src/client/components/ComponentName/ComponentName.jsx
-```
+# Remaining Work
+- [ ] In your-blog add edit option on each blog
+- [ ] Create a edit blog page
+- [ ] Create Crops page just like as Blogs page
+- [ ] Add OTP functionality to User model while registration only, just like Admin model
+- [ ] Then make all requests (get, post, put, delete) from frontend in forms or in some pages
+- [ ] Add JWT for login and signup Session management
