@@ -22,10 +22,8 @@ npm run build
 npm run preview
 ```
 
-```
-# If you want to create any component
-create folder inside src/client/components/ComponentName/ComponentName.jsx
-```
+> # If you want to create any component
+> create folder inside src/client/components/ComponentName/ComponentName.jsx
 
 ```
 <!-- To start server (FastAPI) -->
