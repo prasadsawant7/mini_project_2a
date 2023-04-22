@@ -20,13 +20,12 @@ npm run build
 
 <!-- To start production server -->
 npm run preview
+```
 
 ### If you want to create any component
-
-```
 create folder inside src/client/components/ComponentName/ComponentName.jsx
-```
 
+```
 <!-- To start server (FastAPI) -->
 <!-- mini_project_2a/ from this directory use following commands -->
 <!-- Change directory to server folder -->
