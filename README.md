@@ -80,7 +80,7 @@ npm run status
 # Remaining Work
 - [ ] In your-blog add edit option on each blog
 - [ ] Create a edit blog page
-- [ ] Create Crops page just like as Blogs page
+- [ ] Create Crops pages just like as Blogs page
 - [ ] Add OTP functionality to User model while registration only, just like Admin model
 - [ ] Then make all requests (get, post, put, delete) from frontend in forms or in some pages
 - [ ] Add JWT for login and signup Session management
