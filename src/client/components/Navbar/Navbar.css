@@ -22,13 +22,22 @@
 
 .navbar .page-details .bread-crumbs {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
 .navbar .page-details .crumb {
   cursor: pointer;
   font-size: 15px;
+}
+
+.navbar .page-details .crumb a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.navbar .page-details .crumb:nth-child(2n + 1):after {
+  content: "\a0/\a0";
 }
 
 .navbar .search {

@@ -2,7 +2,6 @@ import { Form } from "react-router-dom";
 import { RiImageLine } from "react-icons/ri";
 import { BiX } from "react-icons/bi";
 import { useState, useRef } from "react";
-import ReactDOM from "react-dom/client";
 
 export default function CreateBlog() {
   const [tags, setTags] = useState([]);
@@ -12,6 +11,8 @@ export default function CreateBlog() {
   const addedTagsRef = useRef();
   const fileInputRef = useRef();
   const previewImageRef = useRef();
+  const tagInputRef = useRef();
+  const noteRef = useRef();
 
   const fileHandler = (e) => {
     setFileName(e.target.value);
@@ -26,27 +27,24 @@ export default function CreateBlog() {
   };
 
   const addTagsHandler = () => {
-    setTags((oldTags) => [...oldTags, tag]);
-    const tagDiv = document.createElement("div");
-    tagDiv.classList.add("tag");
+    if (tagInputRef.current.value.length > 0) {
+      setTags((oldTags) => [...oldTags, tag]);
+      setTag("");
+      tagInputRef.current.style.border = "1px solid rgb(182, 182, 182)";
+      noteRef.current.innerText = "";
+    } else {
+      tagInputRef.current.style.border = "1px solid #cc0000";
+      noteRef.current.innerText = "Add atleast one Tag!";
+      noteRef.current.style.fontSize = "12px";
+      noteRef.current.style.color = "#cc0000";
+      noteRef.current.style.marginBottom = "5px";
+    }
+  };
 
-    const tagNameDiv = document.createElement("div");
-    tagNameDiv.classList.add("tag-name");
-    tagNameDiv.innerText = tag;
-    tagDiv.appendChild(tagNameDiv);
-
-    const tagRemoveDiv = document.createElement("div");
-    tagRemoveDiv.classList.add("tag-remove");
-    ReactDOM.createRoot(tagRemoveDiv).render(<BiX />);
-    tagRemoveDiv.addEventListener("click", (e) => {
-      const index = tags.indexOf(tag);
-      setTags((oldTags) => oldTags.filter((_, i) => i !== index));
-      tagDiv.remove();
+  const removeTagHandler = (index) => {
+    setTags((oldTags) => {
+      return oldTags.filter((_, i) => i !== index);
     });
-    tagDiv.appendChild(tagRemoveDiv);
-
-    addedTagsRef.current.appendChild(tagDiv);
-    setTag("");
   };
 
   const updateTag = (e) => {
@@ -58,9 +56,8 @@ export default function CreateBlog() {
     setTags([]);
     setFileName("");
     setImageUrl("");
-    while (addedTagsRef.current.firstChild) {
-      addedTagsRef.current.removeChild(addedTagsRef.current.firstChild);
-    }
+    tagInputRef.current.style.border = "1px solid rgb(182, 182, 182)";
+    noteRef.current.innerText = "";
   };
 
   return (
@@ -130,7 +127,6 @@ export default function CreateBlog() {
         <div className="tags">
           <label htmlFor="tag-input">Tags</label>
           <div className="add-tag">
-            <input type="text" name="tags" value={tags} />
             <input
               type="text"
               name="show-tags"
@@ -138,12 +134,28 @@ export default function CreateBlog() {
               value={tag}
               onChange={updateTag}
               placeholder="Add tags"
+              ref={tagInputRef}
             />
             <button type="button" id="add-tag" onClick={addTagsHandler}>
               Add
             </button>
           </div>
-          <div className="added-tags" ref={addedTagsRef}></div>
+          <div className="note" ref={noteRef}></div>
+          <div className="added-tags" ref={addedTagsRef}>
+            {tags
+              ? tags.map((tag, index) => (
+                  <div className="tag" key={index}>
+                    <div className="tag-name">{tag}</div>
+                    <div
+                      className="tag-remove"
+                      onClick={() => removeTagHandler(index)}
+                    >
+                      <BiX />
+                    </div>
+                  </div>
+                ))
+              : ""}
+          </div>
         </div>
         <div className="action-btns">
           <button onClick={resetAllFields} type="reset" id="reset">
