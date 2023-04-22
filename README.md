@@ -3,7 +3,7 @@
 ### Commands to run
 
 ```
-
+<!-- If you dont have a local repo then clone the github remote repo first -->
 git clone https://github.com/prasadsawant7/mini_project_2a.git
 
 <!-- Change current working directory to project directory -->
